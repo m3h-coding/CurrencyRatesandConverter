@@ -1,6 +1,5 @@
 package com.hafiz.currencyratesandconverter
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.currencyRates.observe(this) { rates ->
             if (rates != null) {
-               displayCurrencyRates(rates)
+                displayCurrencyRates(rates)
             } else {
                 Toast.makeText(this@MainActivity, "Error fetching rates", Toast.LENGTH_SHORT).show()
             }
@@ -49,10 +48,8 @@ class MainActivity : AppCompatActivity() {
         setupUIInteractions()
     }
 
-    @SuppressLint("SetTextI18n")
     private fun displayBankData(bankData: BankDataResponse) {
         binding.apply {
-            // Display bank data in TextViews
             bankNameTextView.text = "Bank Name: ${bankData.bank_data.name}"
             bankCityTextView.text = "City: ${bankData.bank_data.city}"
             bankZipTextView.text = "ZIP: ${bankData.bank_data.zip}"
@@ -60,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun displayCurrencyRates(rates: Map<String, Double>) {
         val currencyList = rates.keys.toList()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, currencyList)
@@ -81,12 +77,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUIInteractions() {
-        // Implement other UI interactions here, e.g., button clicks, spinner selections
+        // Handle other UI interactions here, e.g., button clicks, spinner selections
         // Example:
-        binding.convertButton.setOnClickListener {
-            // Handle button click
-        }
-
         binding.toCurrencySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 // Handle spinner item selection
@@ -98,5 +90,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
 
 
