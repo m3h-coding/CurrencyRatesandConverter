@@ -1,12 +1,12 @@
 package com.hafiz.currencyratesandconverter
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.hafiz.currencyratesandconverter.databinding.ActivityMainBinding
@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         setupUIInteractions()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun displayBankData(bankData: BankDataResponse) {
         binding.apply {
             bankNameTextView.text = "Bank Name: ${bankData.bank_data.name}"
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun displayCurrencyRates(rates: Map<String, Double>) {
         val currencyList = rates.keys.toList()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, currencyList)
