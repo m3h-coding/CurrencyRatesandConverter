@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Currency Rates and Converter</string>
+    <string name="enter_iban">Enter IBAN</string>
+    <string name="validate">Validate</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="convert">Convert</string>
+    <string name="bank_name">Bank Name:</string>
+    <string name="city">City:</string>
+    <string name="zip">ZIP:</string>
+    <string name="bic">BIC:</string>
+</resources>
